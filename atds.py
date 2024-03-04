@@ -237,3 +237,29 @@ class UnorderedList(object):
             next_node = next_node.get_next()
         result = result + "]"
         return result
+
+class UnorderedListStack(object):
+
+    def __init__(self):
+        self.ulst = UnorderedList()
+
+    def push(self, item):
+        self.ulst.add(item)
+
+    def pop(self):
+        if len(self.ulst > 0):
+            return self.ulst.pop()
+
+    def peek(self):
+        item = self.ulst.pop(0)
+        self.ulst.add(item)
+        return item
+
+    def size(self):
+         return self.ulst.length()
+
+    def is_empty(self):
+        if self.ulst.length() == 0:
+            return True
+        else:
+            return False
