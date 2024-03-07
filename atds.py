@@ -247,7 +247,7 @@ class UnorderedListStack(object):
         self.ulst.add(item)
 
     def pop(self):
-        if len(self.ulst > 0):
+        if self.ulst.length() > 0:
             return self.ulst.pop()
 
     def peek(self):
