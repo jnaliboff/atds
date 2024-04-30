@@ -281,8 +281,7 @@ class HashTable(object):
         """Creates an entry in the hash table
         """
         hash_value = key % self.size        # index for key & value
-        while self.keys[hash_value] != None and self.keys[hash_value] != 
-key:
+        while self.keys[hash_value] != None and self.keys[hash_value] != key:
             hash_value += 1
         # We're at a position where we can place the value
         if self.keys[hash_value] == key:
@@ -293,21 +292,16 @@ key:
 
     def get(self, key):
         hash_value = key % self.size
-        while self.keys[hash_value] != None and self.keys[hash_value] != 
-key:
+        while self.keys[hash_value] != None and self.keys[hash_value] != key:
             hash_value += 1
         if self.keys[hash_value] == key:
             return self.data[hash_value]
         else:
             return None
 
-
-    def __repr__(self):
-        """Returns a string representation of the hash table, displayed 
-        as two arrays.
-        """
-        return "Keys:   " + str(self.keys) + "\n" + "Values: " + 
-str(self.data)
+    def __str__(self):
+        return "Keys:   " + str(self.keys) + "\n" + \
+               "Values: " + str(self.data)
 
 class BinaryTree(object):
     """Constructs a binary tree
